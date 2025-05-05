@@ -6,22 +6,52 @@ function sendMessage(accepted) {
         return;
     }
 
-    // Define a posição como 'fixed' para garantir que se mova pela viewport
+    // Define a posição inicial como 'fixed'
     buttonNo.style.position = "fixed";
 
-    // Garante que o botão tem largura e altura corretas
+    // Pega o tamanho do botão
     const buttonWidth = buttonNo.offsetWidth;
     const buttonHeight = buttonNo.offsetHeight;
 
-    // Calcula posições máximas com base no tamanho da tela e do botão
+    // Define limites da tela visível
     const maxX = window.innerWidth - buttonWidth;
     const maxY = window.innerHeight - buttonHeight;
 
-    // Gera posições aleatórias dentro desses limites
+    // Gera posições aleatórias
     const randomX = Math.floor(Math.random() * maxX);
     const randomY = Math.floor(Math.random() * maxY);
 
-    // Aplica as novas posições
-    buttonNo.style.left = `${randomX}px`;
-    buttonNo.style.top = `${randomY}px`;
+    // Posições iniciais
+    let currentX = parseInt(buttonNo.style.left || 0);
+    let currentY = parseInt(buttonNo.style.top || 0);
+
+    // Velocidade do movimento
+    const speed = 5; // Quanto maior o número, mais rápido o botão vai
+
+    function moveButton() {
+        // Calcula a direção e a distância até a posição final
+        const deltaX = randomX - currentX;
+        const deltaY = randomY - currentY;
+
+        // Se o botão já chegou na posição final, para o movimento
+        if (Math.abs(deltaX) < speed && Math.abs(deltaY) < speed) {
+            buttonNo.style.left = `${randomX}px`;
+            buttonNo.style.top = `${randomY}px`;
+            return;
+        }
+
+        // Move o botão em direção à posição aleatória
+        currentX += Math.sign(deltaX) * speed;
+        currentY += Math.sign(deltaY) * speed;
+
+        // Atualiza a posição do botão
+        buttonNo.style.left = `${currentX}px`;
+        buttonNo.style.top = `${currentY}px`;
+
+        // Chama a função novamente para continuar o movimento
+        requestAnimationFrame(moveButton);
+    }
+
+    // Inicia o movimento
+    moveButton();
 }
