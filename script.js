@@ -1,4 +1,3 @@
-
 const buttonNo = document.querySelector(".no");
 
 function sendMessage(accepted) {
@@ -7,15 +6,18 @@ function sendMessage(accepted) {
         return;
     }
 
-    const computedStyle = window.getComputedStyle(buttonNo);
+    // Garante que o botão tenha posição 'absolute' ou 'fixed'
+    buttonNo.style.position = "fixed";
 
-    if (computedStyle.position == "absolute") {
-        buttonNo.style.position = "fixed";   
-        buttonNo.style.right = "-123px";
-    }
-    else if (computedStyle.position == "fixed") {
-        buttonNo.style.position = "absolute";   
-        buttonNo.style.right = "-180px";
-    }
+    // Tamanho da tela visível
+    const maxWidth = window.innerWidth - buttonNo.offsetWidth;
+    const maxHeight = window.innerHeight - buttonNo.offsetHeight;
 
+    // Gera posições aleatórias dentro dos limites da tela
+    const randomX = Math.random() * maxWidth;
+    const randomY = Math.random() * maxHeight;
+
+    // Aplica as posições
+    buttonNo.style.left = `${randomX}px`;
+    buttonNo.style.top = `${randomY}px`;
 }
