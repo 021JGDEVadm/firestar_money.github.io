@@ -6,18 +6,22 @@ function sendMessage(accepted) {
         return;
     }
 
-    // Garante que o botão tenha posição 'absolute' ou 'fixed'
+    // Define a posição como 'fixed' para garantir que se mova pela viewport
     buttonNo.style.position = "fixed";
 
-    // Tamanho da tela visível
-    const maxWidth = window.innerWidth - buttonNo.offsetWidth;
-    const maxHeight = window.innerHeight - buttonNo.offsetHeight;
+    // Garante que o botão tem largura e altura corretas
+    const buttonWidth = buttonNo.offsetWidth;
+    const buttonHeight = buttonNo.offsetHeight;
 
-    // Gera posições aleatórias dentro dos limites da tela
-    const randomX = Math.random() * maxWidth;
-    const randomY = Math.random() * maxHeight;
+    // Calcula posições máximas com base no tamanho da tela e do botão
+    const maxX = window.innerWidth - buttonWidth;
+    const maxY = window.innerHeight - buttonHeight;
 
-    // Aplica as posições
+    // Gera posições aleatórias dentro desses limites
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
+
+    // Aplica as novas posições
     buttonNo.style.left = `${randomX}px`;
     buttonNo.style.top = `${randomY}px`;
 }
