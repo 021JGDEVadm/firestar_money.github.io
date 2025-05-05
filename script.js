@@ -26,7 +26,7 @@ function sendMessage(accepted) {
     const randomY = Math.floor(Math.random() * maxY);
 
     // Velocidade do movimento
-    const speed = 5; // Quanto maior o número, mais rápido o botão vai
+    const speed = 2; // Quanto maior o número, mais rápido o botão vai
 
     function moveButton() {
         // Calcula a direção e a distância até a posição final
