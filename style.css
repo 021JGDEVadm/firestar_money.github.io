@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: rgb(36, 36, 36);
+    color: white;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 20px;
+}
+
+button {
+    height: 40px;
+    width: 170px;
+    cursor: pointer;
+    border: none;
+    font-weight: bold; 
+}
+
+.yes {
+   background-color: #18BD18; 
+   color: white;
+   right: 0;
+   position: absolute;
+}
+
+.no {
+    border: 2px solid #FF4038;
+    color: #FF4038;
+    background-color: white;
+    right: -180px;
+    position: absolute;
+    cursor: not-allowed;
+}
+
+.btn-ctn {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    position: relative;
+}
