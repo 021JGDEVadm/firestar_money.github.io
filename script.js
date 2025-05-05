@@ -3,7 +3,7 @@ const buttonNo = document.querySelector(".no");
 
 function sendMessage(accepted) {
     if (accepted) {
-        alert("Também te amo, minha princesa");
+        alert("Também te amo, minha princesa, fiz até um site pra vc! ❤️❤️❤️");
         return;
     }
 
