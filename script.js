@@ -6,12 +6,16 @@ function sendMessage(accepted) {
         return;
     }
 
-    // Define a posição inicial como 'fixed'
+    // Garante que o botão esteja 'fixed' e usa posições definidas
     buttonNo.style.position = "fixed";
 
     // Pega o tamanho do botão
     const buttonWidth = buttonNo.offsetWidth;
     const buttonHeight = buttonNo.offsetHeight;
+
+    // Posições iniciais, caso o botão não tenha sido movido antes
+    const currentX = parseInt(buttonNo.style.left || window.innerWidth / 2 - buttonWidth / 2);
+    const currentY = parseInt(buttonNo.style.top || window.innerHeight / 2 - buttonHeight / 2);
 
     // Define limites da tela visível
     const maxX = window.innerWidth - buttonWidth;
@@ -20,10 +24,6 @@ function sendMessage(accepted) {
     // Gera posições aleatórias
     const randomX = Math.floor(Math.random() * maxX);
     const randomY = Math.floor(Math.random() * maxY);
-
-    // Posições iniciais
-    let currentX = parseInt(buttonNo.style.left || 0);
-    let currentY = parseInt(buttonNo.style.top || 0);
 
     // Velocidade do movimento
     const speed = 5; // Quanto maior o número, mais rápido o botão vai
