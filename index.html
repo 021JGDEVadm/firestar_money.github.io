@@ -1,78 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ganhe Dinheiro Assistindo</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f2f2f2;
-            text-align: center;
-            padding: 20px;
-        }
-        #progressBar {
-            width: 80%;
-            background-color: #ddd;
-            margin: 20px auto;
-            height: 30px;
-            border-radius: 15px;
-            overflow: hidden;
-        }
-        #progressFill {
-            height: 100%;
-            width: 0%;
-            background-color: #4CAF50;
-            text-align: center;
-            line-height: 30px;
-            color: white;
-        }
-        #status {
-            margin-top: 20px;
-            font-size: 20px;
-        }
-    </style>
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <h1>Ganhe Dinheiro Assistindo!</h1>
-
-    <!-- Anúncio da Adsterra -->
-    <div style="text-align: center; margin-top: 20px;">
-        <script type="text/javascript">
-          atOptions = {
-            'key' : '60784ace5f47da1e661327c3f4a41023',
-            'format' : 'iframe',
-            'height' : 90,
-            'width' : 728,
-            'params' : {}
-          };
-        </script>
-        <script type="text/javascript" src="//www.highperformanceformat.com/60784ace5f47da1e661327c3f4a41023/invoke.js"></script>
-    </div>
-
-    <!-- Barra de Progresso -->
-    <div id="progressBar">
-        <div id="progressFill">0%</div>
-    </div>
-
-    <div id="status">Aguardando...</div>
-
-    <script>
-        // Script para animar a barra de progresso
-        let width = 0;
-        let progress = setInterval(function() {
-            if (width >= 100) {
-                clearInterval(progress);
-                document.getElementById("status").innerText = "Pronto! Você ganhou 50 centavos!";
-            } else {
-                width++;
-                document.getElementById("progressFill").style.width = width + "%";
-                document.getElementById("progressFill").innerText = width + "%";
-            }
-        }, 400); // 400ms * 100 = 40 segundos
-    </script>
-
+    <main>
+        <h1>Quer namorar comigo?</h1>
+        <div class="btn-ctn">
+            <button class="yes" onclick="sendMessage(true)">SIM</button>
+            <button class="no" onclick="sendMessage(false)">não</button>
+        </div>
+    </main>
+    <script src="./script.js"></script>
 </body>
 </html>
