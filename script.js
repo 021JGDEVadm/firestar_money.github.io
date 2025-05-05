@@ -7,23 +7,26 @@ function sendMessage(accepted) {
         return;
     }
 
-    // Primeira vez: troca para posição fixa e tira do container
     if (!moved) {
-        moved = true;
+        // Captura a posição atual absoluta na TELA
+        const rect = buttonNo.getBoundingClientRect();
+
+        // Torna o botão fixo, mas com a mesma posição visual inicial
         buttonNo.style.position = "fixed";
-        buttonNo.style.right = "auto"; // remove o right
-        buttonNo.style.left = `${buttonNo.getBoundingClientRect().left}px`; // mantém a posição atual
-        buttonNo.style.top = `${buttonNo.getBoundingClientRect().top}px`;
+        buttonNo.style.left = `${rect.left}px`;
+        buttonNo.style.top = `${rect.top}px`;
+        buttonNo.style.right = "auto";
         buttonNo.style.transform = "none";
+        moved = true;
     }
 
-    // Define limites da tela visível
+    // Evita que saia da tela
     const buttonWidth = buttonNo.offsetWidth;
     const buttonHeight = buttonNo.offsetHeight;
     const maxX = window.innerWidth - buttonWidth;
     const maxY = window.innerHeight - buttonHeight;
 
-    // Gera posição aleatória
+    // Gera nova posição aleatória
     const randomX = Math.floor(Math.random() * maxX);
     const randomY = Math.floor(Math.random() * maxY);
 
