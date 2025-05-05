@@ -9,13 +9,14 @@ function sendMessage(accepted) {
     // Garante que o botão esteja 'fixed' e usa posições definidas
     buttonNo.style.position = "fixed";
 
+    // Pega a posição atual do botão (usando getBoundingClientRect)
+    const rect = buttonNo.getBoundingClientRect();
+    let currentX = rect.left;
+    let currentY = rect.top;
+
     // Pega o tamanho do botão
     const buttonWidth = buttonNo.offsetWidth;
     const buttonHeight = buttonNo.offsetHeight;
-
-    // Posições iniciais, caso o botão não tenha sido movido antes
-    const currentX = parseInt(buttonNo.style.left || window.innerWidth / 2 - buttonWidth / 2);
-    const currentY = parseInt(buttonNo.style.top || window.innerHeight / 2 - buttonHeight / 2);
 
     // Define limites da tela visível
     const maxX = window.innerWidth - buttonWidth;
