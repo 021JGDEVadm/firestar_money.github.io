@@ -43,8 +43,8 @@ button {
     cursor: not-allowed;
     position: fixed; /* obrigatório para teleportar pela viewport */
     left: 50%; /* posição inicial visível */
-    top: 50%;
-    transform: translate(-50%, -50%);
+    top: 50%; /* posição inicial visível */
+    transform: none; /* Removido o transform para evitar o impacto no cálculo da posição */
 }
 
 .btn-ctn {
